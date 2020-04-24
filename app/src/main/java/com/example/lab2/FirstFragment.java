@@ -28,9 +28,13 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.wylicz).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText mEdit = (EditText)view.findViewById(R.id.koszt_cena);
+                EditText mEdit = (EditText) view.findViewById(R.id.koszt_cena);
                 String cena = mEdit.getText().toString();
                 ((TextView)view.findViewById(R.id.suma)).setText(cena);
+                //TextView myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
+
+                //in your OnCreate() method
+                //myAwesomeTextView.setText("My Awesome Text");
             }
         } );
 
