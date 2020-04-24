@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class FirstFragment extends Fragment {
 
@@ -37,7 +38,10 @@ public class FirstFragment extends Fragment {
                 TextView suma = (TextView)getActivity().findViewById(R.id.suma);
                 BigDecimal procent = new BigDecimal("100");
                 BigDecimal zaplata = cena.add(cena.multiply(napiwek.divide(procent))) ;
-                suma.setText(zaplata.toString());
+                DecimalFormat df = new DecimalFormat();
+                df.setMaximumFractionDigits(2);
+                df.setMinimumFractionDigits(2);
+                suma.setText(df.format(zaplata));
             }
         } );
 
