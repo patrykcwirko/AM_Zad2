@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,8 +28,9 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.wylicz).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                EditText mEdit = (EditText)view.findViewById(R.id.koszt_cena);
+                String cena = mEdit.getText().toString();
+                ((TextView)view.findViewById(R.id.suma)).setText(cena);
             }
         } );
 
