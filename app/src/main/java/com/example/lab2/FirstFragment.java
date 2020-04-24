@@ -18,7 +18,7 @@ public class FirstFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
@@ -28,13 +28,14 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.wylicz).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText mEdit = (EditText) view.findViewById(R.id.koszt_cena);
-                String cena = mEdit.getText().toString();
-                ((TextView)view.findViewById(R.id.suma)).setText(cena);
-                //TextView myAwesomeTextView = (TextView)findViewById(R.id.myAwesomeTextView);
 
-                //in your OnCreate() method
-                //myAwesomeTextView.setText("My Awesome Text");
+                EditText mCena = (EditText) getActivity().findViewById(R.id.koszt_cena);
+                String cena = mCena.getText().toString();
+                EditText mNap = (EditText) getActivity().findViewById(R.id.sug_nap_cena);
+                String napiwek = mNap.getText().toString();
+                TextView suma = (TextView)getActivity().findViewById(R.id.suma);
+//                Integer zaplata = Integer.getInteger(cena) + Integer.getInteger(cena) * (Integer.getInteger(napiwek)/100);
+                suma.setText(napiwek);
             }
         } );
 
