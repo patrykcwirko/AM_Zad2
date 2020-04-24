@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.math.BigDecimal;
+
 public class FirstFragment extends Fragment {
 
     @Override
@@ -28,14 +30,14 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.wylicz).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 EditText mCena = (EditText) getActivity().findViewById(R.id.koszt_cena);
-                String cena = mCena.getText().toString();
+                BigDecimal cena = new BigDecimal(mCena.getText().toString());
                 EditText mNap = (EditText) getActivity().findViewById(R.id.sug_nap_cena);
-                String napiwek = mNap.getText().toString();
+                BigDecimal napiwek = new BigDecimal(mNap.getText().toString());
                 TextView suma = (TextView)getActivity().findViewById(R.id.suma);
-//                Integer zaplata = Integer.getInteger(cena) + Integer.getInteger(cena) * (Integer.getInteger(napiwek)/100);
-                suma.setText(napiwek);
+                BigDecimal procent = new BigDecimal("100");
+                BigDecimal zaplata = cena.add(cena.multiply(napiwek.divide(procent))) ;
+                suma.setText(zaplata.toString());
             }
         } );
 
